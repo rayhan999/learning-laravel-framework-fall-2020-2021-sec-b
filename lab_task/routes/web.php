@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +13,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	echo "index page";
 });
+
+
+Route::get('/login', 'loginController@index');
+Route::post('/login', 'loginController@verify');
+
+Route::get('/home', 'homeController@index');
+Route::get('/logout', 'logoutController@index');
+
+Route::get('/create', 'homeController@create');
+Route::post('/create', 'homeController@insert');
+
+Route::get('/stdlist', 'homeController@stdlist');
+Route::get('/details/{id}', 'homeController@details');
+
+Route::get('/edit/{id}', 'homeController@edit');
+Route::post('/edit/{id}', 'homeController@update');
+
+Route::get('/delete/{id}', 'homeController@delete');
+Route::post('/delete/{id}', 'homeController@destroy');
