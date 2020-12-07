@@ -43,7 +43,7 @@ class homeController extends Controller
 	public function details($id)
 	{
 		$students = $this->getStudentlist();
-		for ($i = '0'; $i < count($students); $i++) {
+		for ($i = 0; $i < count($students); $i++) {
 			if ($students[$i]['id'] == $id) {
 				$info = [];
 				array_push($info, $students[$i]);
@@ -53,7 +53,7 @@ class homeController extends Controller
 		//return view('home.details');
 	}
 
-	public function create()
+	public function create($request)
 	{
 
 		//return view('home.create');
@@ -68,13 +68,31 @@ class homeController extends Controller
 	public function edit($id)
 	{
 
-		//return view('home.stdlist');
+		$students = $this->getStudentlist();
+		for ($i = 0; $i < count($students); $i++) {
+			if ($students[$i]['id'] == $id) {
+				$info = [];
+				array_push($info, $students[$i]);
+			}
+		}
+		return view('home.edit')->with('students', $info);
 	}
 
-	public function update()
+	public function update(Request $req, $id)
 	{
-
-		//return view('home.stdlist');
+		$students = $this->getStudentlist();
+		for ($i = 0; $i < count($students); $i++) {
+			if ($students[$i]['id'] == $id) {
+				$students[$i]['id'] = $req->id;
+				$students[$i]['name'] = $req->name;
+				$students[$i]['cgpa'] = $req->cgpa;
+				$students[$i]['email'] = $req->email;
+				break;
+			} else {
+				continue;
+			}
+		}
+		return view('home.stdlist')->with('students', $students);
 	}
 
 	public function delete()
