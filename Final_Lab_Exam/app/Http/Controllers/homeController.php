@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\studentRequest;
+use Illuminate\Support\Facades\DB;
+use App\Http\Requests\employee_request;
 use Validator;
 use App\User;
 
@@ -39,68 +40,22 @@ class homeController extends Controller
         return view('home.create');
     }
 
-    public function store(studentRequest $req)
+    public function store(employee_request $req)
     {
 
-        /* $validation = Validator::make($req->all(), [
-            'name' => 'required|min:3',
-            'email'=> 'required',
-            'cgpa' => 'required'
-        ]);
+        $employee_create = array();
+        $employee_create['employee_name'] = $req->employee_name;
+        $employee_create['company_name'] = $req->company_name;
+        $employee_create['contact'] = $req->contact;
+        $employee_create['username'] = $req->username;
+        //$employee_create['password'] = $req->password;
+        $employee_store = DB::table('employee')->insert($employee_create);
+        if ($employee_store) {
+            // $user_add = DB::table('adminuser')->insert($user_create);
+            // if ($user_add) {
 
-        if($validation->fails()){
-            return redirect()
-                    ->route('home.create')
-                    ->with('errors', $validation->errors())
-                    ->withInput();
-
-            return back()
-                    ->with('errors', $validation->errors())
-                    ->withInput();
-        }*/
-
-
-        /* $this->validate($req, [
-            'name' => 'required|min:3',
-            'email'=> 'required',
-            'cgpa' => 'required'
-        ])->validate();*/
-
-
-        /*$req->validate([
-            'name' => 'required|min:3',
-            'email'=> 'required',
-            'cgpa' => 'required'
-        ])->validate();*/
-
-        if ($req->hasFile('myimg')) {
-            $file = $req->file('myimg');
-
-            //echo "File name:".$file->getClientOriginalName()."<br>";
-            //echo "File Ext:".$file->getClientOriginalExtension()."<br>";
-            //echo "File Size:".$file->getSize()."<br>";
-
-            if ($file->move('upload', $file->getClientOriginalName())) {
-
-                $user = new User();
-
-                $user->username     = $req->username;
-                $user->password     = $req->password;
-                $user->type         = $req->type;
-                $user->name         = $req->name;
-                $user->cgpa         = $req->cgpa;
-                $user->dept         = $req->dept;
-                $user->profile_img  = $file->getClientOriginalName();
-
-                if ($user->save()) {
-                    return redirect()->route('home.stdlist');
-                }
-            } else {
-                echo "error";
-            }
+            return Redirect('/home');
         }
-
-        //return redirect()->route('home.stdlist');
     }
 
     public function edit($id)
