@@ -1,6 +1,6 @@
 
 
-@extends('layout/navbar')
+@extends('layout/employee_navbar')
 
 
 
