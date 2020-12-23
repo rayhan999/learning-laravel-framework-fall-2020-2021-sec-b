@@ -24,7 +24,7 @@ Route::get('/logout', 'logoutController@index');
 
 Route::group(['middleware' => ['sess']], function () {
 
-	Route::get('/home', 'homeController@index')->name('home.index')->middleware('sess');
+	Route::get('/home', 'homeController@index')->name('home.index');
 	//Route::get('/admin/user/stdlist', 'homeController@stdlist')->name('home.stdlist');
 	Route::get('/stdlist', ['uses' => 'homeController@stdlist', 'as' => 'home.stdlist']);
 	Route::get('/details/{id}', 'homeController@show')->name('home.show');

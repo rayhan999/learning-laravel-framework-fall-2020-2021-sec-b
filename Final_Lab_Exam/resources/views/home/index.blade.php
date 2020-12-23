@@ -1,4 +1,9 @@
+
+@if($type == 'Admin')
 @extends('layout/navbar')
+@elseif($type == 'Employee')
+@extends('layout/employee_navbar')
+@endif
 
 
 @section('title')
