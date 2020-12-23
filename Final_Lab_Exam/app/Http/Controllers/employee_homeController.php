@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class employee_home extends Controller
+class employee_homeController extends Controller
 {
     public function index(Request $req)
     {
