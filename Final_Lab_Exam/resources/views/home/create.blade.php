@@ -2,11 +2,11 @@
 
 
 @section('title')
-Create Student
+Create Employee
 @endsection
 
 @section('head')
-Create New User
+Create New Employee
 @endsection
 
 
@@ -26,25 +26,18 @@ Create New User
 					<td><input type="password" name="password" value="{{old('password')}}"></td>
 				</tr>
 				<tr>
-					<td>Name</td>
-					<td><input type="text" name="name" value="{{old('name')}}"></td>
+					<td>Employee Name</td>
+					<td><input type="text" name="employee_name" value="{{old('employee_name')}}"></td>
 				</tr>
 				<tr>
-					<td>Cgpa</td>
-					<td><input type="text" name="cgpa" value="{{old('cgpa')}}"></td>
+					<td>Contact</td>
+					<td><input type="number" name="contact" value="{{old('contact')}}"></td>
 				</tr>
 				<tr>
-					<td>dept</td>
-					<td><input type="text" name="dept" value="{{old('dept')}}"></td>
+					<td>Company Name</td>
+					<td><input type="text" name="company_name" value="{{old('company_name')}}"></td>
 				</tr>
-				<tr>
-					<td>type</td>
-					<td><input type="text" name="type" value="{{old('type')}}"></td>
-				</tr>
-				<tr>
-					<td>Photo</td>
-					<td><input type="file" name="myimg"></td>
-				</tr>
+				
 				<tr>
 					<td></td>
 					<td><input type="submit" name="submit" value="Submit"></td>
