@@ -28,6 +28,7 @@ Route::group(['middleware' => ['sess']], function () {
 	Route::get('/employee_home', 'employee_homeController@index')->name('employee_home.index');
 	//Route::get('/admin/user/stdlist', 'homeController@stdlist')->name('home.stdlist');
 	Route::get('/employeelist', ['uses' => 'homeController@employeelist', 'as' => 'home.employeelist']);
+	Route::get('/joblist', ['uses' => 'employee_homeController@joblist', 'as' => 'employee_home.joblist']);
 	Route::get('/details/{id}', 'homeController@show')->name('home.show');
 
 	//Route::group(['middleware' => ['type']], function () {
@@ -37,6 +38,14 @@ Route::group(['middleware' => ['sess']], function () {
 	Route::post('/edit/{id}', 'homeController@update');
 	Route::get('/delete/{id}', 'homeController@delete');
 	Route::post('/delete/{id}', 'homeController@destroy');
+
+
+	Route::get('/employee_create', 'employee_homeController@create')->name('employee_home.create');
+	Route::post('/employee_create', 'employee_homeController@store');
+	Route::get('/employee_edit/{id}', 'employee_homeController@edit')->name('employee_home.edit');
+	Route::post('/employee_edit/{id}', 'employee_homeController@update');
+	Route::get('/employee_delete/{id}', 'employee_homeController@delete');
+	Route::post('/employee_delete/{id}', 'employee_homeController@destroy');
 	//});
 });
 

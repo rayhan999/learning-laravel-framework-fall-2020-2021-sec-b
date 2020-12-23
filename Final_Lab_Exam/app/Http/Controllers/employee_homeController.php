@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests\employee_request;
 use Validator;
 use App\User;
-use App\employee;
+use App\job;
 
 class employee_homeController extends Controller
 {
@@ -19,25 +19,25 @@ class employee_homeController extends Controller
         return view('employee_home.index', ['username' => $req->session()->get('username'), 'type' => $req->session()->get('type')]);
     }
 
-    public function employeelist()
+    public function joblist()
     {
         //$students = $this->getStudentlist();
 
-        $students = employee::all();
-        return view('home.stdlist')->with('students', $students);
+        $students = job::all();
+        return view('employee_home.joblist')->with('students', $students);
     }
 
     public function show($id)
     {
 
-        $std = employee::find($id);
+        $std = job::find($id);
         return view('home.show', $std);
     }
 
     public function create()
     {
 
-        return view('home.create');
+        return view('employee_home.create');
     }
 
     public function store(employee_request $req)
