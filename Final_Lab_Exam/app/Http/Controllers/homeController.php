@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests\employee_request;
 use Validator;
 use App\User;
+use App\employee;
 
 class homeController extends Controller
 {
@@ -19,18 +20,18 @@ class homeController extends Controller
         return view('home.index', ['username' => $req->session()->get('username'), 'type' => $req->session()->get('type')]);
     }
 
-    public function stdlist()
+    public function employeelist()
     {
         //$students = $this->getStudentlist();
 
-        $students = User::all();
+        $students = employee::all();
         return view('home.stdlist')->with('students', $students);
     }
 
     public function show($id)
     {
 
-        $std = User::find($id);
+        $std = employee::find($id);
         return view('home.show', $std);
     }
 
@@ -49,19 +50,25 @@ class homeController extends Controller
         $employee_create['contact'] = $req->contact;
         $employee_create['username'] = $req->username;
         //$employee_create['password'] = $req->password;
+
+        $user_create = array();
+        $user_create['username'] = $req->username;
+        $user_create['password'] = $req->password;
+        $user_create['type'] = 'Employee';
         $employee_store = DB::table('employee')->insert($employee_create);
         if ($employee_store) {
-            // $user_add = DB::table('adminuser')->insert($user_create);
-            // if ($user_add) {
+            $user_add = DB::table('user')->insert($user_create);
+            if ($user_add) {
 
-            return Redirect('/home');
+                return Redirect('/home');
+            }
         }
     }
 
     public function edit($id)
     {
 
-        $std = User::find($id);
+        $std = employee::find($id);
         return view('home.edit', $std);
     }
 

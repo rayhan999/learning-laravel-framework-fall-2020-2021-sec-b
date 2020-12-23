@@ -19,26 +19,23 @@
 					<td>Username</td>
 					<td><input type="text" name="username" value="{{$username}}"></td>
 				</tr>
-				<tr>
+				{{-- <tr>
 					<td>Password</td>
 					<td><input type="password" name="password" value="{{$password}}"></td>
-				</tr>
+				</tr> --}}
 				<tr>
 					<td>Name</td>
-					<td><input type="text" name="name" value="{{$name}}"></td>
+					<td><input type="text" name="name" value="{{$employee_name}}"></td>
 				</tr>
 				<tr>
 					<td>Cgpa</td>
-					<td><input type="text" name="cgpa" value="{{$cgpa}}"></td>
+					<td><input type="text" name="cgpa" value="{{$company_name}}"></td>
 				</tr>
 				<tr>
 					<td>dept</td>
-					<td><input type="text" name="dept" value="{{$dept}}"></td>
+					<td><input type="text" name="dept" value="{{$contact}}"></td>
 				</tr>
-				<tr>
-					<td>type</td>
-					<td><input type="text" name="type" value="{{$type}}"></td>
-				</tr>
+				
 				<tr>
 					<td></td>
 					<td><input type="submit" name="submit" value="Update"></td>
