@@ -18,19 +18,19 @@ Create New Employee
 				<legend>Create User</legend>
 			<table>
 				<tr>
-					<td>Username</td>
+					<td>Name</td>
 					<td><input type="text" name="name" value="{{old('name')}}"></td>
 				</tr>
 				<tr>
-					<td>Password</td>
+					<td>Title</td>
 					<td><input type="password" name="title" value="{{old('title')}}"></td>
 				</tr>
 				<tr>
-					<td>Employee Name</td>
+					<td>Location Name</td>
 					<td><input type="text" name="location" value="{{old('location')}}"></td>
 				</tr>
 				<tr>
-					<td>Contact</td>
+					<td>Salary</td>
 					<td><input type="text" name="salary" value="{{old('salary')}}"></td>
 				</tr>
 				

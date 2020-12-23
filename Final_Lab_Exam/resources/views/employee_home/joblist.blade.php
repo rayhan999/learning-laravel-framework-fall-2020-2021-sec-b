@@ -28,7 +28,7 @@
 				<td>{{$students[$i]['salary']}}</td>
 				<td>
 					<a href="{{route('employee_home.edit', $students[$i]['id'])}}">Edit </a> |
-					<a href="{{route('employee_home.show', $students[$i]['id'])}}">Details </a> |
+					{{-- <a href="{{route('employee_home.show', $students[$i]['id'])}}">Details </a> | --}}
 					<a href="/delete/{{$students[$i]['id']}}">Delete </a> 
 				</td>
 			</tr>

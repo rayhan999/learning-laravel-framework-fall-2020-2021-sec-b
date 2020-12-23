@@ -16,24 +16,24 @@
 				<legend>Edit User</legend>
 			<table border="1">
 				<tr>
-					<td>Username</td>
-					<td><input type="text" name="username" value="{{$username}}"></td>
+					<td>name</td>
+					<td><input type="text" name="name" value="{{$name}}"></td>
 				</tr>
 				{{-- <tr>
 					<td>Password</td>
 					<td><input type="password" name="password" value="{{$password}}"></td>
 				</tr> --}}
 				<tr>
-					<td>Name</td>
-					<td><input type="text" name="employee_name" value="{{$employee_name}}"></td>
+					<td>title</td>
+					<td><input type="text" name="title" value="{{$title}}"></td>
 				</tr>
 				<tr>
-					<td>Cgpa</td>
-					<td><input type="text" name="company_name" value="{{$company_name}}"></td>
+					<td>location</td>
+					<td><input type="text" name="location" value="{{$location}}"></td>
 				</tr>
 				<tr>
-					<td>dept</td>
-					<td><input type="text" name="contact" value="{{$contact}}"></td>
+					<td>salary</td>
+					<td><input type="text" name="salary" value="{{$salary}}"></td>
 				</tr>
 				
 				<tr>
