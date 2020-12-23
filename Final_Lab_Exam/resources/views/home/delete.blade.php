@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Edit Page</title>
+	<title>delete Page</title>
 </head>
 <body>
 	<a href="{{route('home.index')}}">Back</a> |
@@ -38,7 +38,7 @@
 				
 				<tr>
 					<td></td>
-					<td><input type="submit" name="submit" value="Update"></td>
+					<td><input type="submit" name="submit" value="Delete"></td>
 				</tr>
 			</table>
 			</fieldset>

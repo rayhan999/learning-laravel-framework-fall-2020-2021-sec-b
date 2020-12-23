@@ -75,43 +75,32 @@ class homeController extends Controller
     public function update($id, Request $req)
     {
 
-        $user = User::find($id);
+        $user = employee::find($id);
 
         $user->username = $req->username;
-        $user->password = $req->password;
-        $user->type     = $req->type;
-        $user->name     = $req->name;
-        $user->cgpa     = $req->cgpa;
-        $user->dept     = $req->dept;
+        //$user->password = $req->password;
+        $user->employee_name = $req->employee_name;
+        $user->company_name     = $req->company_name;
+        $user->contact     = $req->contact;
 
         $user->save();
 
-        return redirect()->route('home.stdlist');
+        return redirect()->route('home.employeelist');
     }
 
-    public function delete()
+    public function delete($id)
     {
-
+        $std = employee::find($id);
+        return view('home.delete', $std);
         //return view('home.stdlist');
     }
 
-    public function destroy()
+    public function destroy($id)
     {
+        $user = employee::find($id);
+        $user->delete();
+        return redirect()->route('home.employeelist');
 
         //return view('home.stdlist');
-    }
-
-    private function getStudentlist()
-    {
-
-        return [
-            ['id' => 1, 'name' => 'alamin', 'cgpa' => 1.2, 'email' => 'alamin@aiub.edu'],
-            ['id' => 2, 'name' => 'CYZ', 'cgpa' => 2.2, 'email' => 'CYZ@aiub.edu'],
-            ['id' => 3, 'name' => 'XYZ', 'cgpa' => 3.2, 'email' => 'XYZ@aiub.edu'],
-            ['id' => 4, 'name' => 'ABC', 'cgpa' => 3.4, 'email' => 'ABC@aiub.edu'],
-            ['id' => 5, 'name' => 'PQE', 'cgpa' => 3.6, 'email' => 'PQE@aiub.edu'],
-            ['id' => 6, 'name' => 'PQR', 'cgpa' => 4, 'email' => 'PQR@aiub.edu'],
-            ['id' => 7, 'name' => 'asd', 'cgpa' => 2.5, 'email' => 'asd@aiub.edu']
-        ];
     }
 }
