@@ -7,7 +7,7 @@
 	<a href="/stdlist">Back</a> |
 	<a href="/logout">logout</a>
 	<br>
-<form method="post">
+<form action="" method="post">
 	<table border="1">
 		<tr>
 			<td>Id</td>

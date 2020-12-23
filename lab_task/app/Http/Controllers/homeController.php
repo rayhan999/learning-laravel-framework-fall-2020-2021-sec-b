@@ -67,7 +67,6 @@ class homeController extends Controller
 
 	public function edit($id)
 	{
-
 		$students = $this->getStudentlist();
 		for ($i = 0; $i < count($students); $i++) {
 			if ($students[$i]['id'] == $id) {
@@ -87,24 +86,25 @@ class homeController extends Controller
 				$students[$i]['name'] = $req->name;
 				$students[$i]['cgpa'] = $req->cgpa;
 				$students[$i]['email'] = $req->email;
-				break;
-			} else {
-				continue;
 			}
 		}
 		return view('home.stdlist')->with('students', $students);
+		//return redirect()->route('stdlist')->with('students', $students);
 	}
 
-	public function delete()
+	public function delete($id)
 	{
-
-		//return view('home.stdlist');
+		$students = $this->getStudentlist();
+		for ($i = 0; $i < count($students); $i++) {
+			if ($students[$i]['id'] == $id) {
+				$info = [];
+				array_push($info, $students[$i]);
+			}
+		}
+		return view('home.delete')->with('students', $info);
 	}
-
-	public function destroy()
+	public function destroy($id)
 	{
-
-		//return view('home.stdlist');
 	}
 
 	private function getStudentlist()
